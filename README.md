@@ -99,8 +99,12 @@ The flow diagram attached on each testing folder
 
 **CI/CD integration ideas**
 
-Still need to learn about the CI/CD things
+Although I have not yet built a full CI/CD pipeline on my own, I understand the required workflow and have experience working with teams that used similar CI/CD implementations in my previous company
+- Scheduling all of the automation tests to run during low-traffic hours (e.g., midnight) to ensure the environment remains stable without slowing down the development team
+- Configure the pipeline to generate Robot Framework HTML reports (`report.html` and `log.html`) after each test run.
+- Integrate the pipeline with communication tools like Slack or email to send notifications when tests fail or succeed
 
 **Long-term maintenance strategy**
 
--
+- Separate locators/logic into `.resource` files. This ensures that if the UI changes, we only have to update it in one place instead of 50 different test cases
+- Store test data in external files like JSON, CSV, etc to make test cases easier to update without modifying test logic
