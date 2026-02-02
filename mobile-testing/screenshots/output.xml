@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.12.3 on linux)" generated="2026-02-02T08:53:56.296872" rpa="false" schemaversion="5">
+<suite id="s1" name="Qa-Automation-Assessment" source="/home/rizkycatra/Automation/qa-automation-assessment">
+<suite id="s1-s1" name="Mobile-Testing" source="/home/rizkycatra/Automation/qa-automation-assessment/mobile-testing">
+<suite id="s1-s1-s1" name="Test-Script" source="/home/rizkycatra/Automation/qa-automation-assessment/mobile-testing/test-script.robot">
+<test id="s1-s1-s1-t1" name="Scenario: Login Flow" line="6">
+<kw name="User Open WebdriverIO Demo Application" owner="test-script">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>noReset=false</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-02-02T08:53:56.597318" elapsed="4.857842"/>
+</kw>
+<kw name="Activate Application" owner="AppiumLibrary">
+<arg>com.wdiodemoapp</arg>
+<doc>Activates the application if it is not running or is running in the background.</doc>
+<status status="PASS" start="2026-02-02T08:54:01.459401" elapsed="0.211986"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:53:56.596116" elapsed="5.075509"/>
+</kw>
+<kw name="User Navigate To Home Screen" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Demo app for the appium-boilerplate</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:01.672365" elapsed="0.791127"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:01.671931" elapsed="0.791753"/>
+</kw>
+<kw name="User Click The Menu" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:02.465902" level="INFO">Clicking element 'accessibility_id=Login'.</msg>
+<arg>accessibility_id=${menu}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:02.464291" elapsed="0.722958"/>
+</kw>
+<arg>Login</arg>
+<status status="PASS" start="2026-02-02T08:54:02.463938" elapsed="0.723558"/>
+</kw>
+<kw name="User Navigates To Login Menu" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Login / Sign up Form</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:03.188150" elapsed="1.109655"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:03.187773" elapsed="1.110226"/>
+</kw>
+<kw name="User Fills The Email, Password And Submit" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:04.299790" level="INFO">Clicking element 'accessibility_id=input-email'.</msg>
+<arg>accessibility_id=input-email</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:04.298839" elapsed="0.230267"/>
+</kw>
+<kw name="Input Text Into Current Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:04.530941" level="INFO">Typing text 'rizky_test@test.com' into current text field</msg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the currently selected text field.</doc>
+<status status="PASS" start="2026-02-02T08:54:04.529480" elapsed="2.304360"/>
+</kw>
+<kw name="Input Password" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:06.836084" level="INFO">Typing password into text field 'accessibility_id=input-password'</msg>
+<arg>accessibility_id=input-password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:06.834821" elapsed="0.603003"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:07.439640" level="INFO">Clicking element 'accessibility_id=button-LOGIN'.</msg>
+<arg>accessibility_id=button-LOGIN</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:07.438174" elapsed="1.808310"/>
+</kw>
+<arg>rizky_test@test.com</arg>
+<arg>rahasia12345</arg>
+<status status="PASS" start="2026-02-02T08:54:04.298268" elapsed="4.948456"/>
+</kw>
+<kw name="User Successfully Login" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>You are logged in!</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:09.250442" elapsed="1.704800"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:10.956286" level="INFO">Clicking element 'id=android:id/button1'.</msg>
+<msg time="2026-02-02T08:54:11.072502" level="INFO">criteria is android:id/button1</msg>
+<arg>id=android:id/button1</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:10.955485" elapsed="0.117221"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:09.249633" elapsed="1.823210"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-02-02T08:54:11.073209" elapsed="0.708836"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:53:56.588569" elapsed="15.193701"/>
+</test>
+<test id="s1-s1-s1-t2" name="Scenario: Forms Test" line="14">
+<kw name="User Open WebdriverIO Demo Application" owner="test-script">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>noReset=false</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-02-02T08:54:11.925241" elapsed="5.793554"/>
+</kw>
+<kw name="Activate Application" owner="AppiumLibrary">
+<arg>com.wdiodemoapp</arg>
+<doc>Activates the application if it is not running or is running in the background.</doc>
+<status status="PASS" start="2026-02-02T08:54:17.719086" elapsed="0.450094"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:11.924847" elapsed="6.244524"/>
+</kw>
+<kw name="User Navigate To Home Screen" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Demo app for the appium-boilerplate</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:18.170003" elapsed="1.237842"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:18.169632" elapsed="1.238458"/>
+</kw>
+<kw name="User Click The Menu" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:19.410085" level="INFO">Clicking element 'accessibility_id=Forms'.</msg>
+<arg>accessibility_id=${menu}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:19.409081" elapsed="0.275582"/>
+</kw>
+<arg>Forms</arg>
+<status status="PASS" start="2026-02-02T08:54:19.408538" elapsed="0.276349"/>
+</kw>
+<kw name="User Navigate To Forms Menu" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Form components</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:19.685666" elapsed="1.102433"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:19.685203" elapsed="1.103136"/>
+</kw>
+<kw name="User Fills Input Field Forms And Verifies" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:20.789752" level="INFO">Clicking element 'accessibility_id=text-input'.</msg>
+<arg>accessibility_id=text-input</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:20.789019" elapsed="0.174148"/>
+</kw>
+<kw name="Input Text Into Current Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:20.964821" level="INFO">Typing text 'Rizky Hello' into current text field</msg>
+<arg>${text_input}</arg>
+<doc>Types the given ``text`` into the currently selected text field.</doc>
+<status status="PASS" start="2026-02-02T08:54:20.963420" elapsed="1.782611"/>
+</kw>
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:22.747733" level="INFO">Verifying element 'accessibility_id=input-text-result' contains exactly text 'Rizky Hello'.</msg>
+<arg>accessibility_id=input-text-result</arg>
+<arg>${text_input}</arg>
+<doc>Verifies that the element identified by ``locator`` contains the exact text ``expected``.</doc>
+<status status="PASS" start="2026-02-02T08:54:22.746318" elapsed="3.614849"/>
+</kw>
+<arg>Rizky Hello</arg>
+<status status="PASS" start="2026-02-02T08:54:20.788658" elapsed="5.573487"/>
+</kw>
+<kw name="User Switch The Toggle OFF And Verifies" owner="test-script">
+<kw name="Get Element Attribute" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:28.606982" level="INFO">Element 'accessibility_id=switch' attribute 'checked' value 'false' </msg>
+<msg time="2026-02-02T08:54:28.607260" level="INFO">${switch_status} = false</msg>
+<var>${switch_status}</var>
+<arg>accessibility_id=switch</arg>
+<arg>checked</arg>
+<doc>Returns the element attribute using the given ``attribute``, e.g. name, value, etc.</doc>
+<status status="PASS" start="2026-02-02T08:54:26.362909" elapsed="2.244415"/>
+</kw>
+<if>
+<branch type="IF" condition="'${switch_status}' == 'false'">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:28.609180" level="INFO">Clicking element 'accessibility_id=switch'.</msg>
+<arg>accessibility_id=switch</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:28.608165" elapsed="0.237474"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:28.607775" elapsed="0.238029"/>
+</branch>
+<status status="PASS" start="2026-02-02T08:54:28.607726" elapsed="0.238149"/>
+</if>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:29.869049" level="INFO">Element 'accessibility_id=switch' attribute 'checked' is 'true' </msg>
+<arg>accessibility_id=switch</arg>
+<arg>checked</arg>
+<arg>true</arg>
+<doc>Verifies that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2026-02-02T08:54:28.845993" elapsed="1.023807"/>
+</kw>
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:29.871123" level="INFO">Verifying element 'accessibility_id=switch-text' contains exactly text 'Click to turn the switch OFF'.</msg>
+<arg>accessibility_id=switch-text</arg>
+<arg>Click to turn the switch OFF</arg>
+<doc>Verifies that the element identified by ``locator`` contains the exact text ``expected``.</doc>
+<status status="PASS" start="2026-02-02T08:54:29.870004" elapsed="0.056086"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:26.362544" elapsed="3.563944"/>
+</kw>
+<kw name="User Switch The Toggle ON And Verifies" owner="test-script">
+<kw name="Get Element Attribute" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:30.004954" level="INFO">Element 'accessibility_id=switch' attribute 'checked' value 'true' </msg>
+<msg time="2026-02-02T08:54:30.005662" level="INFO">${switch_status} = true</msg>
+<var>${switch_status}</var>
+<arg>accessibility_id=switch</arg>
+<arg>checked</arg>
+<doc>Returns the element attribute using the given ``attribute``, e.g. name, value, etc.</doc>
+<status status="PASS" start="2026-02-02T08:54:29.927137" elapsed="0.078685"/>
+</kw>
+<if>
+<branch type="IF" condition="'${switch_status}' == 'true'">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:30.008052" level="INFO">Clicking element 'accessibility_id=switch'.</msg>
+<arg>accessibility_id=switch</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:30.006913" elapsed="0.221977"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:30.006250" elapsed="0.224790"/>
+</branch>
+<status status="PASS" start="2026-02-02T08:54:30.006167" elapsed="0.224975"/>
+</if>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:30.915143" level="INFO">Element 'accessibility_id=switch' attribute 'checked' is 'false' </msg>
+<arg>accessibility_id=switch</arg>
+<arg>checked</arg>
+<arg>false</arg>
+<doc>Verifies that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2026-02-02T08:54:30.231302" elapsed="0.684242"/>
+</kw>
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:30.921920" level="INFO">Verifying element 'accessibility_id=switch-text' contains exactly text 'Click to turn the switch ON'.</msg>
+<arg>accessibility_id=switch-text</arg>
+<arg>Click to turn the switch ON</arg>
+<doc>Verifies that the element identified by ``locator`` contains the exact text ``expected``.</doc>
+<status status="PASS" start="2026-02-02T08:54:30.917589" elapsed="0.186778"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:29.926800" elapsed="1.179608"/>
+</kw>
+<kw name="User Choose The Option From Dropdown" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:31.110120" level="INFO">Clicking element 'accessibility_id=Dropdown'.</msg>
+<arg>accessibility_id=Dropdown</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:31.108603" elapsed="1.047583"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>class=android.widget.ListView</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-02T08:54:32.156545" elapsed="0.071389"/>
+</kw>
+<if>
+<branch type="IF" condition="'${option}'=='1'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${text_value}</var>
+<arg>webdriver.io is awesome</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-02T08:54:32.228639" elapsed="0.000146"/>
+</kw>
+<status status="NOT RUN" start="2026-02-02T08:54:32.228220" elapsed="0.000674"/>
+</branch>
+<branch type="ELSE IF" condition="'${option}'=='2'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-02T08:54:32.229680" level="INFO">${text_value} = Appium is awesome</msg>
+<var>${text_value}</var>
+<arg>Appium is awesome</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-02T08:54:32.229218" elapsed="0.000577"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:32.228959" elapsed="0.000928"/>
+</branch>
+<branch type="ELSE IF" condition="'${option}'=='3'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${text_value}</var>
+<arg>This app is awesome</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-02T08:54:32.230071" elapsed="0.000079"/>
+</kw>
+<status status="NOT RUN" start="2026-02-02T08:54:32.229933" elapsed="0.000280"/>
+</branch>
+<status status="PASS" start="2026-02-02T08:54:32.228173" elapsed="0.002090"/>
+</if>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:33.624736" level="INFO">xpath criteria: //*[contains(@text,"Appium is awesome")]</msg>
+<arg>${text_value}</arg>
+<doc>Clicks the text identified by ``text``.</doc>
+<status status="PASS" start="2026-02-02T08:54:32.230340" elapsed="1.394629"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>${text_value}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:33.626016" elapsed="0.089111"/>
+</kw>
+<arg>2</arg>
+<status status="PASS" start="2026-02-02T08:54:31.107902" elapsed="2.607417"/>
+</kw>
+<kw name="User Click The Buttons" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:33.719686" level="INFO">Clicking element 'accessibility_id=button-Active'.</msg>
+<arg>accessibility_id=button-Active</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:33.718541" elapsed="0.192397"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:34.866388" level="INFO">xpath criteria: /hierarchy/android.widget.FrameLayout</msg>
+<arg>xpath=/hierarchy/android.widget.FrameLayout</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-02T08:54:33.911193" elapsed="0.955440"/>
+</kw>
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:34.868050" level="INFO">Verifying element 'id=android:id/message' contains exactly text 'This button is active'.</msg>
+<msg time="2026-02-02T08:54:34.897342" level="INFO">criteria is android:id/message</msg>
+<arg>id=android:id/message</arg>
+<arg>This button is active</arg>
+<doc>Verifies that the element identified by ``locator`` contains the exact text ``expected``.</doc>
+<status status="PASS" start="2026-02-02T08:54:34.866878" elapsed="0.030711"/>
+</kw>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:35.048914" level="INFO">xpath criteria: //*[contains(@text,"OK")]</msg>
+<arg>OK</arg>
+<doc>Clicks the text identified by ``text``.</doc>
+<status status="PASS" start="2026-02-02T08:54:34.897815" elapsed="0.153168"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Form components</arg>
+<arg>5s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:35.051245" elapsed="0.692456"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:33.715587" elapsed="2.028423"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-02-02T08:54:35.745917" elapsed="0.746560"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:11.898386" elapsed="24.595183"/>
+</test>
+<test id="s1-s1-s1-t3" name="Scenario: Swipe Test" line="25">
+<kw name="User Open WebdriverIO Demo Application" owner="test-script">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>noReset=false</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-02-02T08:54:36.518707" elapsed="5.563707"/>
+</kw>
+<kw name="Activate Application" owner="AppiumLibrary">
+<arg>com.wdiodemoapp</arg>
+<doc>Activates the application if it is not running or is running in the background.</doc>
+<status status="PASS" start="2026-02-02T08:54:42.082728" elapsed="0.209813"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:36.518230" elapsed="5.774505"/>
+</kw>
+<kw name="User Navigate To Home Screen" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Demo app for the appium-boilerplate</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:42.293313" elapsed="1.004885"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:42.292976" elapsed="1.005428"/>
+</kw>
+<kw name="User Click The Menu" owner="test-script">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:43.300419" level="INFO">Clicking element 'accessibility_id=Swipe'.</msg>
+<arg>accessibility_id=${menu}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T08:54:43.299434" elapsed="0.614984"/>
+</kw>
+<arg>Swipe</arg>
+<status status="PASS" start="2026-02-02T08:54:43.299012" elapsed="0.615585"/>
+</kw>
+<kw name="User Navigate To Swipe Menu" owner="test-script">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Swipe horizontal</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-02T08:54:43.915180" elapsed="0.124764"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:43.914823" elapsed="0.125317"/>
+</kw>
+<kw name="User Swipe Screen From Right To Left And Verify The Card" owner="test-script">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=990</arg>
+<arg>start_y=1270</arg>
+<arg>end_x=100</arg>
+<arg>end_y=1270</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:44.041553" elapsed="0.484510"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2026-02-02T08:54:44.041324" elapsed="0.485086"/>
+</iter>
+<iter>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=990</arg>
+<arg>start_y=1270</arg>
+<arg>end_x=100</arg>
+<arg>end_y=1270</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:44.526887" elapsed="0.874417"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2026-02-02T08:54:44.526648" elapsed="0.874907"/>
+</iter>
+<iter>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=990</arg>
+<arg>start_y=1270</arg>
+<arg>end_x=100</arg>
+<arg>end_y=1270</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:45.408855" elapsed="0.793765"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2026-02-02T08:54:45.408563" elapsed="0.794248"/>
+</iter>
+<var>${i}</var>
+<value>3</value>
+<status status="PASS" start="2026-02-02T08:54:44.041049" elapsed="2.161832"/>
+</for>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-02T08:54:48.203608" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-02T08:54:46.203045" elapsed="2.000864"/>
+</kw>
+<kw name="Page Should Contain Text" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:48.264305" level="INFO">Current page contains text 'SUPPORT VIDEOS'.</msg>
+<arg>SUPPORT VIDEOS</arg>
+<doc>Verifies that the current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-02T08:54:48.204166" elapsed="0.060357"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:44.040659" elapsed="4.224015"/>
+</kw>
+<kw name="User Swipe Screen From Left To Right And Verify The Card" owner="test-script">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=100</arg>
+<arg>start_y=1270</arg>
+<arg>end_x=990</arg>
+<arg>end_y=1270</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:48.265799" elapsed="0.479406"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2026-02-02T08:54:48.265674" elapsed="0.479904"/>
+</iter>
+<iter>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=100</arg>
+<arg>start_y=1270</arg>
+<arg>end_x=990</arg>
+<arg>end_y=1270</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:48.746031" elapsed="1.157490"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2026-02-02T08:54:48.745791" elapsed="1.158232"/>
+</iter>
+<iter>
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=100</arg>
+<arg>start_y=1270</arg>
+<arg>end_x=990</arg>
+<arg>end_y=1270</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:49.908122" elapsed="0.698711"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2026-02-02T08:54:49.904305" elapsed="0.702713"/>
+</iter>
+<var>${i}</var>
+<value>3</value>
+<status status="PASS" start="2026-02-02T08:54:48.265477" elapsed="2.341615"/>
+</for>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-02T08:54:52.607839" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-02T08:54:50.607258" elapsed="2.000827"/>
+</kw>
+<kw name="Page Should Contain Text" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:52.658783" level="INFO">Current page contains text 'FULLY OPEN SOURCE'.</msg>
+<arg>FULLY OPEN SOURCE</arg>
+<doc>Verifies that the current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-02T08:54:52.608287" elapsed="0.050707"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:48.265176" elapsed="4.393966"/>
+</kw>
+<kw name="User Swipe Up And Verify The Content" owner="test-script">
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=540</arg>
+<arg>start_y=2013</arg>
+<arg>end_x=540</arg>
+<arg>end_y=468</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:52.660531" elapsed="0.490509"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-02T08:54:55.152031" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-02T08:54:53.151415" elapsed="2.000899"/>
+</kw>
+<kw name="Page Should Contain Text" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:55.200066" level="INFO">Current page contains text 'You found me!!!'.</msg>
+<arg>You found me!!!</arg>
+<doc>Verifies that the current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-02T08:54:55.152518" elapsed="0.048126"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:52.660085" elapsed="2.540716"/>
+</kw>
+<kw name="User Swipe Down And Verify The Content" owner="test-script">
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>start_x=540</arg>
+<arg>start_y=468</arg>
+<arg>end_x=540</arg>
+<arg>end_y=2013</arg>
+<arg>duration=100ms</arg>
+<doc>Swipes from one point to another point, for an optional ``duration``.</doc>
+<status status="PASS" start="2026-02-02T08:54:55.201381" elapsed="0.462230"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-02T08:54:57.664439" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-02T08:54:55.663885" elapsed="2.000820"/>
+</kw>
+<kw name="Page Should Contain Text" owner="AppiumLibrary">
+<msg time="2026-02-02T08:54:57.722605" level="INFO">Current page contains text 'Swipe horizontal'.</msg>
+<arg>Swipe horizontal</arg>
+<doc>Verifies that the current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-02T08:54:57.664907" elapsed="0.057910"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:55.201056" elapsed="2.521910"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-02-02T08:54:57.723536" elapsed="0.838474"/>
+</kw>
+<status status="PASS" start="2026-02-02T08:54:36.504005" elapsed="22.058245"/>
+</test>
+<status status="PASS" start="2026-02-02T08:53:56.432773" elapsed="62.141001"/>
+</suite>
+<status status="PASS" start="2026-02-02T08:53:56.370553" elapsed="62.355746"/>
+</suite>
+<status status="PASS" start="2026-02-02T08:53:56.325171" elapsed="62.406660"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Qa-Automation-Assessment" id="s1" pass="3" fail="0" skip="0">Qa-Automation-Assessment</stat>
+<stat name="Mobile-Testing" id="s1-s1" pass="3" fail="0" skip="0">Qa-Automation-Assessment.Mobile-Testing</stat>
+<stat name="Test-Script" id="s1-s1-s1" pass="3" fail="0" skip="0">Qa-Automation-Assessment.Mobile-Testing.Test-Script</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

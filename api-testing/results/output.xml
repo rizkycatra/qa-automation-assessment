@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.12.3 on linux)" generated="2026-02-01T21:22:58.903166" rpa="false" schemaversion="5">
+<suite id="s1" name="Qa-Automation-Assessment" source="/home/rizkycatra/Automation/qa-automation-assessment">
+<suite id="s1-s1" name="Api-Testing" source="/home/rizkycatra/Automation/qa-automation-assessment/api-testing">
+<suite id="s1-s1-s1" name="Api-Test" source="/home/rizkycatra/Automation/qa-automation-assessment/api-testing/api-test.robot">
+<kw name="Create API Connection" owner="api-test" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-01T21:22:59.142003" level="INFO">Creating Session using : alias=jsonplaceholder, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>jsonplaceholder</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-01T21:22:59.141647" elapsed="0.000664"/>
+</kw>
+<status status="PASS" start="2026-02-01T21:22:59.140995" elapsed="0.001450"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Scenario: Get A Post By Id And Verify Response" line="8">
+<kw name="Get Posts Data By ID" owner="api-test">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-01T21:22:59.770960" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/88 
+ path_url=/posts/88 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-01T21:22:59.771261" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/88 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 01 Feb 2026 14:22:59 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'max-age=43200', 'etag': 'W/"bf-99RNmrovk8IKMxPgFxxzF7hL4oc"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=njPA8agoTN6NOpZZ%2BVQZrlg4%2FRrw9PgOelywa3ENFus%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1769785335"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=njPA8agoTN6NOpZZ%2BVQZrlg4%2FRrw9PgOelywa3ENFus%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1769785335"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '999', 'x-ratelimit-reset': '1769785395', 'Age': '16431', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '9c721aa6eca70ba3-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "userId": 9,
+  "id": 88,
+  "title": "sapiente omnis fugit eos",
+  "body": "consequatur omnis est praesentium\nducimus non iste\nneque hic deserunt\nvoluptatibus veniam cum et rerum sed"
+} 
+ </msg>
+<msg time="2026-02-01T21:22:59.771481" level="INFO">/home/rizkycatra/Automation/qa-automation-assessment/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-01T21:22:59.771795" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/posts/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.155215" elapsed="0.616652"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-01T21:22:59.772024" elapsed="0.000207"/>
+</return>
+<msg time="2026-02-01T21:22:59.772392" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>88</arg>
+<status status="PASS" start="2026-02-01T21:22:59.154688" elapsed="0.617762"/>
+</kw>
+<kw name="Verify Status Code" owner="api-test">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.773584" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.773011" elapsed="0.000665"/>
+</kw>
+<arg>${response}</arg>
+<arg>200</arg>
+<status status="PASS" start="2026-02-01T21:22:59.772713" elapsed="0.001040"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.774750" level="INFO">${actual_value} = 9</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.774180" elapsed="0.000628"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.775200" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.774906" elapsed="0.000378"/>
+</kw>
+<arg>${response}</arg>
+<arg>userId</arg>
+<arg>9</arg>
+<status status="PASS" start="2026-02-01T21:22:59.773895" elapsed="0.001469"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.776162" level="INFO">${actual_value} = 88</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.775744" elapsed="0.000476"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.776541" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.776322" elapsed="0.000298"/>
+</kw>
+<arg>${response}</arg>
+<arg>id</arg>
+<arg>88</arg>
+<status status="PASS" start="2026-02-01T21:22:59.775500" elapsed="0.001192"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.777598" level="INFO">${actual_value} = sapiente omnis fugit eos</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.777140" elapsed="0.000520"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.777756" elapsed="0.000269"/>
+</kw>
+<arg>${response}</arg>
+<arg>title</arg>
+<arg>sapiente omnis fugit eos</arg>
+<status status="PASS" start="2026-02-01T21:22:59.776899" elapsed="0.001215"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.781038" level="INFO">${actual_value} = consequatur omnis est praesentium
+ducimus non iste
+neque hic deserunt
+voluptatibus veniam cum et rerum sed</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.780535" elapsed="0.000580"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.781223" elapsed="0.000351"/>
+</kw>
+<arg>${response}</arg>
+<arg>body</arg>
+<arg>consequatur omnis est praesentium\nducimus non iste\nneque hic deserunt\nvoluptatibus veniam cum et rerum sed</arg>
+<status status="PASS" start="2026-02-01T21:22:59.778278" elapsed="0.003380"/>
+</kw>
+<status status="PASS" start="2026-02-01T21:22:59.142540" elapsed="0.639268"/>
+</test>
+<test id="s1-s1-s1-t2" name="Scenario: Create And Verify New Post" line="16">
+<kw name="Create New Post" owner="api-test">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-01T21:22:59.832189" level="INFO">${payload} = {'title': 'The Title', 'body': 'The body text', 'userId': '5'}</msg>
+<var>${payload}</var>
+<arg>title=${title}</arg>
+<arg>body=${body}</arg>
+<arg>userId=${userid}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.831696" elapsed="0.000581"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-01T21:23:00.340050" level="INFO">POST Request : url=https://jsonplaceholder.typicode.com/posts 
+ path_url=/posts 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '62', 'Content-Type': 'application/json'} 
+ body=b'{"title": "The Title", "body": "The body text", "userId": "5"}' 
+ </msg>
+<msg time="2026-02-01T21:23:00.340371" level="INFO">POST Response : url=https://jsonplaceholder.typicode.com/posts 
+ status=201, reason=Created 
+ headers={'Date': 'Sun, 01 Feb 2026 14:23:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '83', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-expose-headers': 'Location', 'Cache-Control': 'no-cache', 'etag': 'W/"53-1MkEFMv2gfT8XrlgsmTsWAckrfQ"', 'expires': '-1', 'location': 'https://jsonplaceholder.typicode.com/posts/101', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=5tpGO9asMY4d3nWCPWkAkprUU%2FpAQueEAFdghm%2FxPAc%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1769955780"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=5tpGO9asMY4d3nWCPWkAkprUU%2FpAQueEAFdghm%2FxPAc%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1769955780"', 'Server': 'cloudflare', 'vary': 'Origin, X-HTTP-Method-Override, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '999', 'x-ratelimit-reset': '1769955818', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': '9c721aa878400ba3-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "title": "The Title",
+  "body": "The body text",
+  "userId": "5",
+  "id": 101
+} 
+ </msg>
+<msg time="2026-02-01T21:23:00.340499" level="INFO">/home/rizkycatra/Automation/qa-automation-assessment/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-01T21:23:00.340749" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/posts</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-01T21:22:59.832416" elapsed="0.508393"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-01T21:23:00.340943" elapsed="0.000189"/>
+</return>
+<msg time="2026-02-01T21:23:00.341269" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>The Title</arg>
+<arg>The body text</arg>
+<arg>5</arg>
+<status status="PASS" start="2026-02-01T21:22:59.831304" elapsed="0.510029"/>
+</kw>
+<kw name="Verify Status Code" owner="api-test">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.342657" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.342109" elapsed="0.000639"/>
+</kw>
+<arg>${response}</arg>
+<arg>201</arg>
+<status status="PASS" start="2026-02-01T21:23:00.341610" elapsed="0.001216"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.344994" level="INFO">${actual_value} = The Title</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.343276" elapsed="0.001780"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.345156" elapsed="0.000307"/>
+</kw>
+<arg>${response}</arg>
+<arg>title</arg>
+<arg>The Title</arg>
+<status status="PASS" start="2026-02-01T21:23:00.342966" elapsed="0.002602"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.346637" level="INFO">${actual_value} = The body text</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.346087" elapsed="0.000627"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.346838" elapsed="0.000420"/>
+</kw>
+<arg>${response}</arg>
+<arg>body</arg>
+<arg>The body text</arg>
+<status status="PASS" start="2026-02-01T21:23:00.345776" elapsed="0.001586"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.348513" level="INFO">${actual_value} = 5</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.347933" elapsed="0.000733"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.348783" elapsed="0.000305"/>
+</kw>
+<arg>${response}</arg>
+<arg>userId</arg>
+<arg>5</arg>
+<status status="PASS" start="2026-02-01T21:23:00.347616" elapsed="0.001559"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.350164" level="INFO">${actual_value} = 101</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.349654" elapsed="0.000578"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.350743" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.350376" elapsed="0.000540"/>
+</kw>
+<arg>${response}</arg>
+<arg>id</arg>
+<arg>101</arg>
+<status status="PASS" start="2026-02-01T21:23:00.349357" elapsed="0.001649"/>
+</kw>
+<status status="PASS" start="2026-02-01T21:22:59.826795" elapsed="0.524426"/>
+</test>
+<test id="s1-s1-s1-t3" name="Scenario: Update An Existing Post" line="24">
+<kw name="Update Post Data" owner="api-test">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.439849" level="INFO">${payload} = {'id': '2', 'title': 'The Post update', 'body': 'some text update here', 'userId': '5'}</msg>
+<var>${payload}</var>
+<arg>id=${id}</arg>
+<arg>title=${title}</arg>
+<arg>body=${body}</arg>
+<arg>userId=${userid}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.439352" elapsed="0.000599"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2026-02-01T21:23:00.934482" level="INFO">PUT Request : url=https://jsonplaceholder.typicode.com/posts/2 
+ path_url=/posts/2 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '87', 'Content-Type': 'application/json'} 
+ body=b'{"id": "2", "title": "The Post update", "body": "some text update here", "userId": "5"}' 
+ </msg>
+<msg time="2026-02-01T21:23:00.934688" level="INFO">PUT Response : url=https://jsonplaceholder.typicode.com/posts/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 01 Feb 2026 14:23:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'no-cache', 'etag': 'W/"5f-CrMyT+hKdjlnSNqHaetY6HfbOXA"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=5tpGO9asMY4d3nWCPWkAkprUU%2FpAQueEAFdghm%2FxPAc%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1769955780"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=5tpGO9asMY4d3nWCPWkAkprUU%2FpAQueEAFdghm%2FxPAc%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1769955780"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '998', 'x-ratelimit-reset': '1769955818', 'cf-cache-status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'CF-RAY': '9c721aac49c50ba3-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "id": 2,
+  "title": "The Post update",
+  "body": "some text update here",
+  "userId": "5"
+} 
+ </msg>
+<msg time="2026-02-01T21:23:00.934804" level="INFO">/home/rizkycatra/Automation/qa-automation-assessment/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-01T21:23:00.935060" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/posts/${id}</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.440089" elapsed="0.495031"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-01T21:23:00.935247" elapsed="0.000185"/>
+</return>
+<msg time="2026-02-01T21:23:00.935597" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>2</arg>
+<arg>The Post update</arg>
+<arg>some text update here</arg>
+<arg>5</arg>
+<status status="PASS" start="2026-02-01T21:23:00.438913" elapsed="0.496743"/>
+</kw>
+<kw name="Verify Status Code" owner="api-test">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.936917" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.936413" elapsed="0.000619"/>
+</kw>
+<arg>${response}</arg>
+<arg>200</arg>
+<status status="PASS" start="2026-02-01T21:23:00.936036" elapsed="0.001082"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.938193" level="INFO">${actual_value} = The Post update</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.937683" elapsed="0.000571"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.938364" elapsed="0.000304"/>
+</kw>
+<arg>${response}</arg>
+<arg>title</arg>
+<arg>The Post update</arg>
+<status status="PASS" start="2026-02-01T21:23:00.937373" elapsed="0.001370"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.939617" level="INFO">${actual_value} = some text update here</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.939194" elapsed="0.000483"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.939769" elapsed="0.000315"/>
+</kw>
+<arg>${response}</arg>
+<arg>body</arg>
+<arg>some text update here</arg>
+<status status="PASS" start="2026-02-01T21:23:00.938917" elapsed="0.001275"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.941093" level="INFO">${actual_value} = 5</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.940687" elapsed="0.000468"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.941250" elapsed="0.000248"/>
+</kw>
+<arg>${response}</arg>
+<arg>userId</arg>
+<arg>5</arg>
+<status status="PASS" start="2026-02-01T21:23:00.940437" elapsed="0.001132"/>
+</kw>
+<kw name="Verify Response Field" owner="api-test">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.942629" level="INFO">${actual_value} = 2</msg>
+<var>${actual_value}</var>
+<arg>${response.json()['${field}']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.942043" elapsed="0.000645"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-02-01T21:23:00.943065" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_value}</arg>
+<arg>${expected_value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-01T21:23:00.942783" elapsed="0.000361"/>
+</kw>
+<arg>${response}</arg>
+<arg>id</arg>
+<arg>2</arg>
+<status status="PASS" start="2026-02-01T21:23:00.941742" elapsed="0.001474"/>
+</kw>
+<status status="PASS" start="2026-02-01T21:23:00.431570" elapsed="0.511808"/>
+</test>
+<test id="s1-s1-s1-t4" name="Scenario: Delete A Post From The System" line="32">
+<kw name="Delete Post Data" owner="api-test">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-02-01T21:23:01.488131" level="INFO">DELETE Request : url=https://jsonplaceholder.typicode.com/posts/2 
+ path_url=/posts/2 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-02-01T21:23:01.488373" level="INFO">DELETE Response : url=https://jsonplaceholder.typicode.com/posts/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 01 Feb 2026 14:23:01 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'no-cache', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=reLKTnYvz40fSsfbO2fLbYDl8nsYbeCwfrvid2E1NeA%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1769955781"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=reLKTnYvz40fSsfbO2fLbYDl8nsYbeCwfrvid2E1NeA%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1769955781"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '997', 'x-ratelimit-reset': '1769955818', 'cf-cache-status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'CF-RAY': '9c721aafdb7b0ba3-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg time="2026-02-01T21:23:01.488483" level="INFO">/home/rizkycatra/Automation/qa-automation-assessment/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-01T21:23:01.488753" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/posts/${id}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-01T21:23:01.008175" elapsed="0.480658"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-01T21:23:01.488983" elapsed="0.000176"/>
+</return>
+<msg time="2026-02-01T21:23:01.489370" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>2</arg>
+<status status="PASS" start="2026-02-01T21:23:01.007794" elapsed="0.481647"/>
+</kw>
+<kw name="Verify Status Code" owner="api-test">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-01T21:23:01.490630" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-01T21:23:01.490134" elapsed="0.000587"/>
+</kw>
+<arg>${response}</arg>
+<arg>200</arg>
+<status status="PASS" start="2026-02-01T21:23:01.489758" elapsed="0.001046"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-01T21:23:01.491450" level="INFO">${response_body} = {}</msg>
+<var>${response_body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-01T21:23:01.490935" elapsed="0.000574"/>
+</kw>
+<kw name="Should Be Empty" owner="BuiltIn">
+<msg time="2026-02-01T21:23:01.492085" level="INFO">Length is 0.</msg>
+<arg>${response_body}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="PASS" start="2026-02-01T21:23:01.491640" elapsed="0.000537"/>
+</kw>
+<status status="PASS" start="2026-02-01T21:23:00.996946" elapsed="0.495375"/>
+</test>
+<test id="s1-s1-s1-t5" name="Scenario: Get A Non-Existing Post" line="38">
+<kw name="Get Posts Data By ID" owner="api-test">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-01T21:23:01.755642" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/9999 
+ path_url=/posts/9999 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-01T21:23:01.755845" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/9999 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sun, 01 Feb 2026 14:23:01 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'max-age=43200', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SLa3oB8%2BW2%2BUxJjBtmfh4dPbXpaz7cuAb68WZoaxUXI%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1769939349"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=SLa3oB8%2BW2%2BUxJjBtmfh4dPbXpaz7cuAb68WZoaxUXI%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1769939349"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '995', 'x-ratelimit-reset': '1769939378', 'Age': '16431', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '9c721ab35c110ba3-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg time="2026-02-01T21:23:01.755947" level="INFO">/home/rizkycatra/Automation/qa-automation-assessment/venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-02-01T21:23:01.756199" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/posts/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-01T21:23:01.569953" elapsed="0.186301"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-01T21:23:01.756407" elapsed="0.000122"/>
+</return>
+<msg time="2026-02-01T21:23:01.756657" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>9999</arg>
+<status status="PASS" start="2026-02-01T21:23:01.569327" elapsed="0.187387"/>
+</kw>
+<kw name="Verify Status Code" owner="api-test">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-01T21:23:01.758323" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-01T21:23:01.757630" elapsed="0.000792"/>
+</kw>
+<arg>${response}</arg>
+<arg>404</arg>
+<status status="PASS" start="2026-02-01T21:23:01.756944" elapsed="0.001562"/>
+</kw>
+<status status="PASS" start="2026-02-01T21:23:01.501537" elapsed="0.257179"/>
+</test>
+<status status="PASS" start="2026-02-01T21:22:59.045358" elapsed="2.717901"/>
+</suite>
+<status status="PASS" start="2026-02-01T21:22:59.039320" elapsed="2.810889"/>
+</suite>
+<status status="PASS" start="2026-02-01T21:22:58.933478" elapsed="2.920419"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Qa-Automation-Assessment" id="s1" pass="5" fail="0" skip="0">Qa-Automation-Assessment</stat>
+<stat name="Api-Testing" id="s1-s1" pass="5" fail="0" skip="0">Qa-Automation-Assessment.Api-Testing</stat>
+<stat name="Api-Test" id="s1-s1-s1" pass="5" fail="0" skip="0">Qa-Automation-Assessment.Api-Testing.Api-Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

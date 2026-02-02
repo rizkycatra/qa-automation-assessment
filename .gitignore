@@ -1,0 +1,20 @@
+# 1. Ignore everything in the root by default
+/*
+
+# 2. Allow your 3 main project folders (and everything inside them)
+!/api-testing/
+!/web-testing/
+!/mobile-testing/
+
+# 3. Explicitly allow root-level configuration files
+!/.gitignore
+!/README.md
+!/requirements.txt
+
+# 4. Explicitly ignore the root 'results' folder and 'venv'
+/results/
+/venv/
+
+# 5. Safety catch: ignore OS-specific junk
+.DS_Store
+Thumbs.db
