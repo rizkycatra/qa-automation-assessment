@@ -5,6 +5,7 @@
 !/api-testing/
 !/web-testing/
 !/mobile-testing/
+!/diagrams/
 
 # 3. Explicitly allow root-level configuration files
 !/.gitignore
