@@ -13,6 +13,7 @@ All test suites (Web, API, Mobile) achieved a 100% Pass Rate. The report and vid
 - api-testing/results
 - web-testing/screenshoot
 - mobile-testing/screenshots
+- diagrams
 
 **Key findings and insights**
 - Building the automation test for web, API, and mobile have different characteristics.  
